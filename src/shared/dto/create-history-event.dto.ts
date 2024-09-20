@@ -1,5 +1,5 @@
 import { BalanceActionTypeEnum } from '../enums/balance-action-type.enum';
-import { IsEnum, IsNumber } from 'class-validator';
+import { IsEnum, IsNumber, IsPositive } from 'class-validator';
 
 export class CreateHistoryEventDto {
   user_id: number;
@@ -8,5 +8,6 @@ export class CreateHistoryEventDto {
   action: BalanceActionTypeEnum;
 
   @IsNumber()
+  @IsPositive()
   amount: number;
 }
